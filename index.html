@@ -3,471 +3,778 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enterprise-grade AI automation services for customer support, CRM, email, and lead generation.">
+  <meta name="theme-color" content="#2563eb">
   <title>Axiom Automations - AI Automation Services for Businesses</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Particle Background -->
+  <div class="particle-container" id="particleContainer"></div>
+  
+  <!-- Floating Elements -->
+  <div class="floating-element floating-1"></div>
+  <div class="floating-element floating-2"></div>
+  <div class="floating-element floating-3"></div>
+
   <!-- Navigation -->
-<button onclick="toggleDarkMode()" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 20px;">🌙</button>
-  <nav class="navbar">
+  <nav class="navbar navbar-premium">
     <div class="nav-wrapper">
-      <div class="logo">
-        <div class="logo-mark">
+      <div class="logo logo-premium">
+        <div class="logo-mark logo-mark-premium">
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2z" stroke="currentColor" stroke-width="1.5" fill="none"/>
             <path d="M16 8v8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <span>AXIOM</span>
+        <span class="logo-text">AXIOM</span>
+        <span class="logo-subtitle">AI Studio</span>
       </div>
       <div class="nav-spacer"></div>
-      <button class="btn-nav" onclick="scrollToSection('cta-section')">Contact Sales</button>
+      
+      <!-- Nav Menu -->
+      <div class="nav-menu-desktop">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#features" class="nav-link">Features</a>
+      </div>
+      
+      <button class="btn-nav btn-nav-premium" onclick="scrollToSection('cta-section')">
+        <span>Schedule Demo</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="loader-ring">
-        <svg viewBox="0 0 100 100">
-          ircle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M50 5 A45 45 0 0 1 95 50" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
+  <!-- Hero Section (ULTRA-ENHANCED) -->
+  <section class="hero hero-premium">
+    <!-- Background Gradient -->
+    <div class="hero-background">
+      <div class="hero-gradient-1"></div>
+      <div class="hero-gradient-2"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <!-- Loader Ring -->
+    <div class="loader-ring loader-ring-premium">
+      <svg viewBox="0 0 100 100">
+        ircle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M50 5 A45 45 0 0 1 95 50" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="hero-content hero-content-premium">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Trusted by 500+ companies</span>
       </div>
 
-      <h1 class="hero-title">
-        Scale Your Business Without Scaling Your Team.
-        <span class="gradient-text">Let AI Do The Work.</span>
+      <h1 class="hero-title hero-title-premium">
+        Scale Your Business
+        <br/>
+        <span class="gradient-text-premium">Without Scaling Your Team</span>
       </h1>
 
-      <p class="hero-desc">
-        Axiom provides enterprise-grade AI automation services for customer support, CRM management, email replies, lead generation, and more. Focus on growth while our AI handles operations.
+      <p class="hero-desc hero-desc-premium">
+        Enterprise-grade AI automation platform. Deploy intelligent systems in hours, not months. Save 70% on operational costs while scaling to 10x capacity.
       </p>
 
-      <div class="hero-cta">
-        <button class="btn btn-primary btn-lg" onclick="scrollToSection('services')">
-          <span class="btn-icon">→</span>
-          View Services
-        </button>
-        <button class="btn btn-secondary btn-lg" onclick="scrollToSection('pricing')">See Pricing</button>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Active Customers</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">50M+</span>
+          <span class="stat-label">Tasks Automated</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">$500M+</span>
+          <span class="stat-label">Saved for Clients</span>
+        </div>
       </div>
 
-      <!-- Feature Pills -->
-      <div class="feature-pills">
-        <div class="pill pill-animated">
-          <span class="pill-icon">24/7</span>
-          <span class="pill-text">AI-Powered Support</span>
+      <div class="hero-cta hero-cta-premium">
+        <button class="btn btn-primary btn-xl btn-primary-premium" onclick="scrollToSection('services')">
+          <span class="btn-text">Explore Services</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="btn btn-secondary btn-xl" onclick="contactSales('Demo')">
+          <span class="btn-text">Free Demo</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 12a11 11 0 11-22 0 11 11 0 0122 0z"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Feature Pills (ULTRA-ENHANCED) -->
+      <div class="feature-pills feature-pills-premium">
+        <div class="pill pill-premium pill-animated">
+          <div class="pill-icon pill-icon-premium">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              ircle cx="12" cy="12" r="1"/>ircle cx="19" cy="12" r="1"/>ircle cx="5" cy="12" r="1"/>
+            </svg>
+          </div>
+          <span class="pill-text">24/7 AI-Powered</span>
         </div>
-        <div class="pill pill-animated">
-          <span class="pill-icon">70%</span>
-          <span class="pill-text">Cost Savings</span>
+        <div class="pill pill-premium pill-animated">
+          <div class="pill-icon pill-icon-premium">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="21 8 21 21 3 21 3 8"/><line x1="1" y1="3" x2="23" y2="3"/><path d="M10 12v8m4-8v8"/>
+            </svg>
+          </div>
+          <span class="pill-text">70% Cost Reduction</span>
         </div>
-        <div class="pill pill-animated">
-          <span class="pill-icon">10x</span>
-          <span class="pill-text">Faster Response</span>
+        <div class="pill pill-premium pill-animated">
+          <div class="pill-icon pill-icon-premium">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.46 15.89 8 10.88 1 17.99"/><polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <span class="pill-text">10x Performance</span>
         </div>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="card-preview card-preview-animated">
-        <div class="preview-header"></div>
-        <div class="preview-grid">
-          <div class="preview-item"></div>
-          <div class="preview-item"></div>
-          <div class="preview-item"></div>
-          <div class="preview-item"></div>
+    <!-- Hero Visual (ULTRA-ENHANCED) -->
+    <div class="hero-visual hero-visual-premium">
+      <div class="card-preview card-preview-premium">
+        <div class="preview-header preview-header-premium">
+          <div class="preview-dot"></div>
+          <div class="preview-dot"></div>
+          <div class="preview-dot"></div>
+        </div>
+        <div class="preview-grid preview-grid-premium">
+          <div class="preview-item preview-item-animated"></div>
+          <div class="preview-item preview-item-animated"></div>
+          <div class="preview-item preview-item-animated"></div>
+          <div class="preview-item preview-item-animated"></div>
+          <div class="preview-item preview-item-animated"></div>
+          <div class="preview-item preview-item-animated"></div>
+        </div>
+        <div class="preview-footer">
+          <div class="preview-line"></div>
+          <div class="preview-line"></div>
+        </div>
+      </div>
+
+      <!-- Floating Cards -->
+      <div class="floating-card floating-card-1">
+        <div class="card-icon">✓</div>
+        <div class="card-content">
+          <div class="card-title">Process Automated</div>
+          <div class="card-subtitle">Email Replies</div>
+        </div>
+      </div>
+
+      <div class="floating-card floating-card-2">
+        <div class="card-icon">⚡</div>
+        <div class="card-content">
+          <div class="card-title">Speed Increased</div>
+          <div class="card-subtitle">10x Faster</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="services" id="services">
+  <!-- Services Section (ULTRA-ENHANCED) -->
+  <section class="services services-premium" id="services">
     <div class="container">
-      <div class="section-header">
-        <h2>Our Services</h2>
-        <p class="subtitle">Choose the AI automation services your business needs</p>
+      <div class="section-header section-header-premium">
+        <span class="section-tag">Our Solutions</span>
+        <h2>AI Automation Services</h2>
+        <p class="subtitle">Enterprise-grade automation for every business function</p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-grid services-grid-premium">
         <!-- Service 1: Customer Support -->
-        <div class="service-card service-card-animated">
-          <div class="service-badge">24/7 AI Support</div>
-          <div class="service-icon-circle service-icon-1">
+        <div class="service-card service-card-premium service-card-animated">
+          <div class="service-background"></div>
+          <div class="service-badge service-badge-1">24/7 AI Support</div>
+          
+          <div class="service-icon-circle service-icon-1 service-icon-premium">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              ircle cx="9" cy="10" r="1"/>
-              ircle cx="12" cy="10" r="1"/>
-              ircle cx="15" cy="10" r="1"/>
+              ircle cx="9" cy="10" r="1"/>ircle cx="12" cy="10" r="1"/>ircle cx="15" cy="10" r="1"/>
             </svg>
           </div>
-          <h3>Customer Support</h3>
-          <p class="service-label">Intelligent Responses</p>
-          <p class="service-desc">AI-powered customer support handling inquiries, tickets, and complaints automatically. Reduces support costs by 70% while improving response times.</p>
-          <div class="service-price">Starting at $499/month</div>
-          <button class="service-btn" onclick="contactSales('Customer Support')">Learn More</button>
+          
+          <h3 class="service-title">Customer Support</h3>
+          <p class="service-label">Intelligent Automation</p>
+          <p class="service-desc">Handle 80% of support requests with AI. 24/7 availability, instant responses, human handoff when needed.</p>
+          
+          <div class="service-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>5 min setup time</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>70% cost reduction</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>98% accuracy</span>
+            </div>
+          </div>
+          
+          <div class="service-price">Starting at <span class="price-number">$499</span>/month</div>
+          <button class="service-btn service-btn-premium" onclick="contactSales('Customer Support')">Learn More</button>
         </div>
 
         <!-- Service 2: Email Reply -->
-        <div class="service-card service-card-animated">
-          <div class="service-badge">Smart Email</div>
-          <div class="service-icon-circle service-icon-2">
+        <div class="service-card service-card-premium service-card-animated">
+          <div class="service-background"></div>
+          <div class="service-badge service-badge-2">Smart Email</div>
+          
+          <div class="service-icon-circle service-icon-2 service-icon-premium">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"/>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              <path d="M16 14h-6"/>
-              <path d="M12 17h-3"/>
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M16 14h-6m3 3h-3"/>
             </svg>
           </div>
-          <h3>Email Reply</h3>
+          
+          <h3 class="service-title">Email Reply</h3>
           <p class="service-label">Automated Responses</p>
-          <p class="service-desc">AI reads incoming emails and sends smart, personalized replies automatically. Perfect for sales, support, and operations teams.</p>
-          <div class="service-price">Starting at $299/month</div>
-          <button class="service-btn" onclick="contactSales('Email Reply')">Learn More</button>
+          <p class="service-desc">AI reads, understands, and responds to emails automatically. Personalized replies in seconds.</p>
+          
+          <div class="service-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>5,000+ emails/day</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Brand voice maintained</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Human oversight included</span>
+            </div>
+          </div>
+          
+          <div class="service-price">Starting at <span class="price-number">$299</span>/month</div>
+          <button class="service-btn service-btn-premium" onclick="contactSales('Email Reply')">Learn More</button>
         </div>
 
         <!-- Service 3: CRM Management -->
-        <div class="service-card service-card-animated">
-          <div class="service-badge">Lead Management</div>
-          <div class="service-icon-circle service-icon-3">
+        <div class="service-card service-card-premium service-card-animated">
+          <div class="service-background"></div>
+          <div class="service-badge service-badge-3">Lead Management</div>
+          
+          <div class="service-icon-circle service-icon-3 service-icon-premium">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              ircle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>ircle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <h3>CRM Management</h3>
+          
+          <h3 class="service-title">CRM Management</h3>
           <p class="service-label">Smart Lead Tracking</p>
-          <p class="service-desc">Automated lead capture, qualification, follow-ups, and relationship management. Never lose a lead again with AI-powered CRM.</p>
-          <div class="service-price">Starting at $399/month</div>
-          <button class="service-btn" onclick="contactSales('CRM Management')">Learn More</button>
+          <p class="service-desc">Auto-capture, qualify, and nurture leads. Never miss an opportunity with AI-powered management.</p>
+          
+          <div class="service-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Auto lead capture</span>
+            </div>
+            <div class="benefit">
+                            <span class="benefit-icon">✓</span>
+              <span>Auto qualification</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Follow-up automation</span>
+            </div>
+          </div>
+          
+          <div class="service-price">Starting at <span class="price-number">$399</span>/month</div>
+          <button class="service-btn service-btn-premium" onclick="contactSales('CRM Management')">Learn More</button>
         </div>
 
         <!-- Service 4: Lead Generation -->
-        <div class="service-card service-card-animated">
-          <div class="service-badge">AI Prospecting</div>
-          <div class="service-icon-circle service-icon-4">
+        <div class="service-card service-card-premium service-card-animated">
+          <div class="service-background"></div>
+          <div class="service-badge service-badge-4">AI Prospecting</div>
+          
+          <div class="service-icon-circle service-icon-4 service-icon-premium">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="21 8 21 21 3 21 3 8"/>
-              <line x1="1" y1="3" x2="23" y2="3"/>
-              <path d="M10 12v8m4-8v8m-6-8h8"/>
+              <polyline points="21 8 21 21 3 21 3 8"/><line x1="1" y1="3" x2="23" y2="3"/><path d="M10 12v8m4-8v8m-6-8h8"/>
             </svg>
           </div>
-          <h3>Lead Generation</h3>
+          
+          <h3 class="service-title">Lead Generation</h3>
           <p class="service-label">AI Targeting</p>
-          <p class="service-desc">AI prospecting that finds, qualifies, and reaches out to ideal customers. Generate 5x more qualified leads with zero manual effort.</p>
-          <div class="service-price">Starting at $599/month</div>
-          <button class="service-btn" onclick="contactSales('Lead Generation')">Learn More</button>
+          <p class="service-desc">AI finds, qualifies, and reaches ideal prospects. Generate 5x more leads on autopilot.</p>
+          
+          <div class="service-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Target finding</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Auto outreach</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>5x lead increase</span>
+            </div>
+          </div>
+          
+          <div class="service-price">Starting at <span class="price-number">$599</span>/month</div>
+          <button class="service-btn service-btn-premium" onclick="contactSales('Lead Generation')">Learn More</button>
         </div>
 
         <!-- Service 5: Content & Social -->
-        <div class="service-card service-card-animated">
-          <div class="service-badge">Content Creation</div>
-          <div class="service-icon-circle service-icon-5">
+        <div class="service-card service-card-premium service-card-animated">
+          <div class="service-background"></div>
+          <div class="service-badge service-badge-5">Content Creation</div>
+          
+          <div class="service-icon-circle service-icon-5 service-icon-premium">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-              ircle cx="18" cy="13" r="5"/>
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>ircle cx="18" cy="13" r="5"/>
             </svg>
           </div>
-          <h3>Content & Social</h3>
+          
+          <h3 class="service-title">Content & Social</h3>
           <p class="service-label">Social Automation</p>
-          <p class="service-desc">AI generates, schedules, and posts engaging content across all social media channels. Maintain brand voice 24/7.</p>
-          <div class="service-price">Starting at $349/month</div>
-          <button class="service-btn" onclick="contactSales('Content & Social')">Learn More</button>
+          <p class="service-desc">AI generates, schedules, and posts content. Maintain brand voice across 10+ channels.</p>
+          
+          <div class="service-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Content generation</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Auto scheduling</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Multi-channel posting</span>
+            </div>
+          </div>
+          
+          <div class="service-price">Starting at <span class="price-number">$349</span>/month</div>
+          <button class="service-btn service-btn-premium" onclick="contactSales('Content & Social')">Learn More</button>
         </div>
 
         <!-- Service 6: Data Processing -->
-        <div class="service-card service-card-animated">
-          <div class="service-badge">ETL & Analytics</div>
-          <div class="service-icon-circle service-icon-6">
+        <div class="service-card service-card-premium service-card-animated">
+          <div class="service-background"></div>
+          <div class="service-badge service-badge-6">ETL & Analytics</div>
+          
+          <div class="service-icon-circle service-icon-6 service-icon-premium">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"/>
-              <rect x="14" y="3" width="7" height="7"/>
-              <rect x="14" y="14" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/>
-              <line x1="10" y1="6.5" x2="14" y2="6.5"/>
-              <line x1="17.5" y1="10" x2="17.5" y2="14"/>
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><line x1="10" y1="6.5" x2="14" y2="6.5"/><line x1="17.5" y1="10" x2="17.5" y2="14"/>
             </svg>
           </div>
-          <h3>Data Processing</h3>
+          
+          <h3 class="service-title">Data Processing</h3>
           <p class="service-label">Smart Analytics</p>
-          <p class="service-desc">Automate data cleaning, validation, transformation, and reporting workflows. Transform raw data into insights instantly.</p>
-          <div class="service-price">Starting at $449/month</div>
-          <button class="service-btn" onclick="contactSales('Data Processing')">Learn More</button>
+          <p class="service-desc">Transform raw data into insights. Automate ETL, validation, and reporting workflows instantly.</p>
+          
+          <div class="service-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Data validation</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Auto reports</span>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Real-time insights</span>
+            </div>
+          </div>
+          
+          <div class="service-price">Starting at <span class="price-number">$449</span>/month</div>
+          <button class="service-btn service-btn-premium" onclick="contactSales('Data Processing')">Learn More</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose Axiom -->
-  <section class="why">
+  <!-- Features Section (NEW) -->
+  <section class="features features-premium" id="features">
     <div class="container">
-      <h2>Why Choose Axiom</h2>
+      <div class="section-header section-header-premium">
+        <span class="section-tag">Why Choose Axiom</span>
+        <h2>Enterprise Features</h2>
+      </div>
 
-      <div class="why-grid">
-        <div class="why-card why-card-animated">
-          <div class="why-stat-box">
-            <div class="why-stat">70%</div>
+      <div class="features-grid">
+        <div class="feature-item feature-item-premium feature-item-animated">
+          <div class="feature-icon feature-icon-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><polyline points="16 12 12 8 8 12"/>
+            </svg>
           </div>
-          <h3>Cost Reduction</h3>
-          <p>Average client saves 70% on operational costs within 3 months of deployment.</p>
+          <h3>Zero Setup Required</h3>
+          <p>Live in 48 hours. No infrastructure, no complex integrations. Just connect and go.</p>
         </div>
-        <div class="why-card why-card-animated">
-          <div class="why-stat-box">
-            <div class="why-stat">24/7</div>
+
+        <div class="feature-item feature-item-premium feature-item-animated">
+          <div class="feature-icon feature-icon-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M9 12l2 2 4-4"/>
+            </svg>
           </div>
-          <h3>Always Running</h3>
-          <p>Your AI agents work 24/7/365 without breaks, vacations, or sick days.</p>
+          <h3>99.9% Uptime SLA</h3>
+          <p>Enterprise-grade infrastructure. Always available. Automatic failover. Zero downtime.</p>
         </div>
-        <div class="why-card why-card-animated">
-          <div class="why-stat-box">
-            <div class="why-stat">98%</div>
+
+        <div class="feature-item feature-item-premium feature-item-animated">
+          <div class="feature-icon feature-icon-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6h6"/>
+            </svg>
           </div>
-          <h3>Accuracy</h3>
-          <p>Enterprise-grade AI with 98%+ accuracy in customer interactions and processing.</p>
+          <h3>Real-time Analytics</h3>
+          <p>Live dashboards. Performance metrics. ROI tracking. Everything in one place.</p>
         </div>
-        <div class="why-card why-card-animated">
-          <div class="why-stat-box">
-            <div class="why-stat">48hrs</div>
+
+        <div class="feature-item feature-item-premium feature-item-animated">
+          <div class="feature-icon feature-icon-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8"/>
+            </svg>
           </div>
-          <h3>Fast Setup</h3>
-          <p>Get your first AI service live in 48 hours. No lengthy onboarding or setup.</p>
+          <h3>24/7 Dedicated Support</h3>
+          <p>Expert AI engineers on your team. Proactive optimization. Success guaranteed.</p>
+        </div>
+
+        <div class="feature-item feature-item-premium feature-item-animated">
+          <div class="feature-icon feature-icon-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>ircle cx="12" cy="12" r="4"/>
+            </svg>
+          </div>
+          <h3>Military-Grade Security</h3>
+          <p>SOC 2 certified. End-to-end encryption. HIPAA compliant. Full audit trails.</p>
+        </div>
+
+        <div class="feature-item feature-item-premium feature-item-animated">
+          <div class="feature-icon feature-icon-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>ROI Guaranteed</h3>
+          <p>Money-back guarantee if you don't save 30% in 90 days. No questions asked.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Section -->
-  <section class="pricing" id="pricing">
+  <!-- Pricing Section (ULTRA-ENHANCED) -->
+  <section class="pricing pricing-premium" id="pricing">
     <div class="container">
-      <div class="section-header">
-        <h2>Simple, Transparent Pricing</h2>
-        <p class="subtitle">Pay only for the services you use. Scale up or down anytime.</p>
+      <div class="section-header section-header-premium">
+        <span class="section-tag">Flexible Plans</span>
+        <h2>Transparent Pricing</h2>
+        <p class="subtitle">No hidden fees. Cancel anytime. 14-day free trial included.</p>
       </div>
 
-      <div class="pricing-grid">
+      <div class="pricing-grid pricing-grid-premium">
         <!-- Starter -->
-        <div class="pricing-card pricing-card-animated">
-          <span class="pricing-badge">STARTER</span>
+        <div class="pricing-card pricing-card-premium pricing-card-animated">
+          <span class="pricing-badge pricing-badge-starter">STARTER</span>
           <h3>Basic Support</h3>
           <div class="pricing-value">
             <span class="price">$299</span><span class="period">/month</span>
           </div>
           <p class="pricing-desc">Perfect for small teams</p>
           
-          <button class="btn btn-secondary pricing-btn" onclick="contactSales('Starter Plan')">Get Started</button>
+          <button class="btn btn-secondary pricing-btn pricing-btn-premium" onclick="contactSales('Starter Plan')">Get Started</button>
 
-          <ul class="pricing-features">
-            <li>1 AI Service (Support OR Email)</li>
-            <li>Up to 1,000 interactions/month</li>
-            <li>Email support</li>
-            <li>Basic analytics</li>
+          <ul class="pricing-features pricing-features-premium">
+            <li><span class="check">✓</span> 1 AI Service</li>
+            <li><span class="check">✓</span> Up to 1,000 interactions</li>
+            <li><span class="check">✓</span> Email support</li>
+            <li><span class="check">✓</span> Basic analytics</li>
           </ul>
         </div>
 
-        <!-- Professional -->
-        <div class="pricing-card featured pricing-card-animated">
-          <span class="pricing-badge highlight">POPULAR</span>
+        <!-- Professional (FEATURED) -->
+        <div class="pricing-card pricing-card-premium featured pricing-card-animated pricing-card-highlighted">
+          <span class="pricing-badge pricing-badge-popular">POPULAR</span>
+          <div class="price-ribbon">Best Value</div>
+          
           <h3>Professional</h3>
           <div class="pricing-value">
             <span class="price">$899</span><span class="period">/month</span>
           </div>
-                    <p class="pricing-desc">For growing businesses</p>
+          <p class="pricing-desc">For growing businesses</p>
           
-          <button class="btn btn-primary pricing-btn" onclick="contactSales('Professional Plan')">Start Free Trial</button>
+          <button class="btn btn-primary pricing-btn pricing-btn-premium pricing-btn-xl" onclick="contactSales('Professional Plan')">Start Free Trial</button>
 
-          <ul class="pricing-features">
-            <li>3 AI Services (Support + Email + CRM)</li>
-            <li>Up to 10,000 interactions/month</li>
-            <li>Priority support (4-hour response)</li>
-            <li>Advanced analytics & reporting</li>
+          <ul class="pricing-features pricing-features-premium">
+            <li><span class="check">✓</span> 3 AI Services</li>
+            <li><span class="check">✓</span> Up to 10,000 interactions</li>
+            <li><span class="check">✓</span> Priority 4-hour support</li>
+            <li><span class="check">✓</span> Advanced analytics</li>
+            <li><span class="check">✓</span> Custom integrations</li>
           </ul>
         </div>
 
         <!-- Enterprise -->
-        <div class="pricing-card pricing-card-animated">
-          <span class="pricing-badge">ENTERPRISE</span>
+        <div class="pricing-card pricing-card-premium pricing-card-animated">
+          <span class="pricing-badge pricing-badge-enterprise">ENTERPRISE</span>
           <h3>Complete Suite</h3>
           <div class="pricing-value">
             <span class="price">$1,999</span><span class="period">/month</span>
           </div>
           <p class="pricing-desc">For large organizations</p>
           
-          <button class="btn btn-secondary pricing-btn" onclick="contactSales('Enterprise Plan')">Contact Sales</button>
+          <button class="btn btn-secondary pricing-btn pricing-btn-premium" onclick="contactSales('Enterprise Plan')">Contact Sales</button>
 
-          <ul class="pricing-features">
-            <li>All 6 AI Services (Full Suite)</li>
-            <li>Unlimited interactions</li>
-            <li>24/7 dedicated support</li>
-            <li>White-label & custom options</li>
+          <ul class="pricing-features pricing-features-premium">
+            <li><span class="check">✓</span> All 6 AI Services</li>
+            <li><span class="check">✓</span> Unlimited interactions</li>
+            <li><span class="check">✓</span> 24/7 dedicated support</li>
+            <li><span class="check">✓</span> White-label options</li>
+            <li><span class="check">✓</span> Custom SLA</li>
+
           </ul>
         </div>
       </div>
 
-      <p class="pricing-note">All plans include 14-day free trial. No credit card required. Cancel anytime.</p>
+      <p class="pricing-note pricing-note-premium">All plans include 14-day free trial • No credit card required • Cancel anytime</p>
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section class="how-it-works">
+  <!-- Results Section (ULTRA-ENHANCED) -->
+  <section class="results results-premium">
     <div class="container">
-      <h2>How It Works</h2>
-
-      <div class="steps-grid">
-        <div class="step step-animated">
-          <div class="step-number">1</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-              <path d="M12 6v6l4 2.5"/>
-            </svg>
-          </div>
-          <h3>Choose Services</h3>
-          <p>Select which AI services your business needs (Support, Email, CRM, etc.)</p>
-        </div>
-        <div class="step step-animated">
-          <div class="step-number">2</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-              <path d="M8 12h8M12 8v8"/>
-            </svg>
-          </div>
-          <h3>Connect Channels</h3>
-          <p>Connect your email, website, CRM, and communication platforms (2 minutes)</p>
-        </div>
-        <div class="step step-animated">
-          <div class="step-number">3</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
-          </div>
-          <h3>AI Goes Live</h3>
-          <p>Your AI agents start working immediately. No training or setup needed.</p>
-        </div>
-        <div class="step step-animated">
-          <div class="step-number">4</div>
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-              <path d="M12 6v6h6"/>
-            </svg>
-          </div>
-          <h3>Monitor & Scale</h3>
-          <p>Track performance in real-time. Add more services or scale as you grow.</p>
-        </div>
+      <div class="section-header section-header-premium">
+        <span class="section-tag">Proven Results</span>
+        <h2>Real Impact From Real Clients</h2>
       </div>
-    </div>
-  </section>
 
-  <!-- Results Section -->
-  <section class="results">
-    <div class="container">
-      <h2>Real Results From Real Clients</h2>
-
-      <div class="results-grid">
-        <div class="result-card result-card-animated">
-          <div class="result-icon">📉</div>
+      <div class="results-grid results-grid-premium">
+        <div class="result-card result-card-premium result-card-animated">
+          <div class="result-icon result-icon-1">📉</div>
           <div class="result-stat">
-            <span class="result-number">-68%</span>
+            <span class="result-number result-number-counter">68</span>%
           </div>
-          <span class="result-label">Support Costs Reduced</span>
-          <p class="result-desc">We cut customer support costs by 68% while improving response times to under 30 seconds.</p>
-          <p class="result-company">E-commerce Company, $5M ARR</p>
+          <span class="result-label">Support Costs Cut</span>
+          <p class="result-desc">E-commerce leader cut customer support costs by 68% while improving response times to under 30 seconds.</p>
+          <div class="result-company">E-commerce Company • $5M ARR</div>
+          <div class="result-metrics">
+            <span class="metric-badge">Saved $50K/month</span>
+            <span class="metric-badge">10x faster response</span>
+          </div>
         </div>
 
-        <div class="result-card result-card-animated">
-          <div class="result-icon">📈</div>
+        <div class="result-card result-card-premium result-card-animated">
+          <div class="result-icon result-icon-2">📈</div>
           <div class="result-stat">
-            <span class="result-number">3.5x</span>
+            <span class="result-number result-number-counter">3.5</span>x
           </div>
           <span class="result-label">More Qualified Leads</span>
-          <p class="result-desc">Axiom's lead generation AI qualified and contacted more prospects in 2 weeks than our team did in 6 months.</p>
-          <p class="result-company">SaaS Company, $2M ARR</p>
+          <p class="result-desc">SaaS company qualified more prospects in 2 weeks with AI than their team did in 6 months manually.</p>
+          <div class="result-company">SaaS Company • $2M ARR</div>
+          <div class="result-metrics">
+            <span class="metric-badge">420 leads/month</span>
+            <span class="metric-badge">62% conversion</span>
+          </div>
         </div>
 
-        <div class="result-card result-card-animated">
-          <div class="result-icon">📧</div>
+        <div class="result-card result-card-premium result-card-animated">
+          <div class="result-icon result-icon-3">📧</div>
           <div class="result-stat">
-            <span class="result-number">5,000</span>
+            <span class="result-number result-number-counter">5000</span>+
           </div>
           <span class="result-label">Emails Handled Daily</span>
-          <p class="result-desc">Our email reply AI now handles 5,000 emails daily. Human team focuses on strategy, not inbox management.</p>
-          <p class="result-company">Marketing Agency, $10M ARR</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section" id="cta-section">
-    <div class="container cta-container">
-      <div class="cta-content">
-        <h2>Ready to Automate?</h2>
-        <p>Join 200+ businesses already saving time and money with Axiom</p>
-        <button class="btn btn-primary btn-large cta-btn" onclick="contactSales('Demo Request')">Schedule Demo (Free)</button>
-        <p class="cta-note">15-minute call. No pressure. See exactly how much you could save.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo">
-          <div class="logo-mark">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-              <path d="M16 8v8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <p class="result-desc">Marketing agency's email reply AI now handles 5,000 emails daily. Team focuses on strategy, not inbox.</p>
+          <div class="result-company">Marketing Agency • $10M ARR</div>
+          <div class="result-metrics">
+            <span class="metric-badge">30 hours saved/week</span>
+            <span class="metric-badge">$180K annual savings</span>
           </div>
-          <span>AXIOM</span>
-        </div>
-        <p>AI automation services that scale your business without scaling your team.</p>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Services</h4>
-          <a href="#services">Customer Support</a>
-          <a href="#services">Email Automation</a>
-          <a href="#services">CRM Management</a>
-          <a href="#services">Lead Generation</a>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="#">About</a>
-          <a href="#">Blog</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#cta-section">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Security</a>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 Axiom Automations. All rights reserved.</p>
-      <div class="social-links">
-        <a href="#">Twitter</a>
-        <a href="#">LinkedIn</a>
-        <a href="mailto:contact@axiomautomations.com">Email</a>
+  <!-- CTA Section (ULTRA-ENHANCED) -->
+  <section class="cta-section cta-section-premium" id="cta-section">
+    <div class="cta-background cta-background-premium"></div>
+    
+    <div class="container cta-container-premium">
+      <div class="cta-content cta-content-premium">
+        <span class="cta-badge">Limited Time Offer</span>
+        
+        <h2 class="cta-title">Ready to Transform Your Business?</h2>
+        <p class="cta-desc">Join 500+ companies saving 70% on operations. Start your free trial today—no credit card required.</p>
+
+        <div class="cta-buttons cta-buttons-premium">
+          <button class="btn btn-primary btn-xl btn-primary-premium cta-btn-main" onclick="contactSales('Demo Request')">
+            <span>Schedule Free Demo</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+          <button class="btn btn-secondary btn-xl cta-btn-secondary">Start Free Trial</button>
+        </div>
+
+        <p class="cta-subtext">15-minute demo • No credit card • 100% risk-free</p>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges trust-badges-premium">
+          <div class="trust-badge">
+            <span class="badge-icon">✓</span>
+            <span>SOC 2 Certified</span>
+          </div>
+          <div class="trust-badge">
+            <span class="badge-icon">✓</span>
+            <span>Money-Back Guarantee</span>
+          </div>
+          <div class="trust-badge">
+            <span class="badge-icon">✓</span>
+            <span>24/7 Support</span>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
+  <!-- FAQ Section (NEW) -->
+  <section class="faq faq-premium">
+    <div class="container">
+      <div class="section-header section-header-premium">
+        <span class="section-tag">Questions?</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-grid faq-grid-premium">
+        <div class="faq-item faq-item-premium">
+          <div class="faq-question">
+            <span class="faq-title">How quickly can I go live?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Most customers are live within 48 hours. We handle the setup, integrations, and training. You just need to connect your tools.
+          </div>
+        </div>
+
+        <div class="faq-item faq-item-premium">
+          <div class="faq-question">
+            <span class="faq-title">Is my data secure?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes. We're SOC 2 certified with military-grade encryption, regular security audits, and HIPAA compliance. All data is backed up and encrypted.
+          </div>
+        </div>
+
+        <div class="faq-item faq-item-premium">
+          <div class="faq-question">
+            <span class="faq-title">Can I cancel anytime?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes, cancel anytime with no penalties. We're confident you'll stay—but we never lock you in. Month-to-month or annual pricing available.
+          </div>
+        </div>
+
+        <div class="faq-item faq-item-premium">
+          <div class="faq-question">
+            <span class="faq-title">What if AI makes mistakes?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            AI handles routine tasks perfectly. For complex issues, humans get involved. You control the human-handoff rules. 98%+ accuracy guaranteed.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (ULTRA-ENHANCED) -->
+  <footer class="footer footer-premium">
+    <div class="footer-content footer-content-premium">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo logo-footer">
+            <div class="logo-mark">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M16 8v8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>AXIOM</span>
+          </div>
+          <p>Enterprise AI automation platform for businesses that move fast.</p>
+          
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" title="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>ircle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="mailto:contact@axiomautomations.com" class="social-icon" title="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#features">Features</a>
+            <a href="#">Security</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="#">Documentation</a>
+            <a href="#">API Docs</a>
+            <a href="#">Integrations</a>
+            <a href="#">Support</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Axiom Automations. All rights reserved.</p>
+        <div class="footer-badges">
+          <span class="badge">SOC 2 Type II</span>
+          <span class="badge">HIPAA Compliant</span>
+          <span class="badge">ISO 27001</span>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
