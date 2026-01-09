@@ -1,22 +1,20 @@
-// ============ CONTACT SALES FUNCTION ============
-function contactSales(plan) {
-  const message = plan === 'Demo Request' 
-    ? 'Hi Axiom team, I\'d like to schedule a free demo to see how we can save on operational costs.\n\nPlease contact me at your earliest convenience.'
-    : `Hi Axiom team, I\'m interested in the ${plan}. Could you please contact me with more details, pricing, and information about implementation?\n\nThank you.`;
-  
-  const email = 'contact@axiomautomations.com';
-  const subject = `${plan} - Axiom Automations Inquiry`;
-  
-  // Trigger scroll animation
-  animateButtonClick(event);
-  
-  // Open email client
-  setTimeout(() => {
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-  }, 300);
+// ============ PARTICLE SYSTEM ============
+function createParticles() {
+  const container = document.getElementById('particleContainer');
+  if (!container) return;
+
+  for (let i = 0; i < 50; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 10 + 's';
+    particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+    container.appendChild(particle);
+  }
 }
 
-// ============ SCROLL TO SECTION ============
+// ============ SMOOTH SCROLL & NAVIGATION ============
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -24,48 +22,46 @@ function scrollToSection(sectionId) {
   }
 }
 
-// ============ SMOOTH SCROLL FOR ANCHOR LINKS ============
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href !== '#') {
-      e.preventDefault();
-      scrollToSection(href.substring(1));
-    }
-  });
-});
-
-// ============ BUTTON CLICK ANIMATION ============
-function animateButtonClick(e) {
-  if (e && e.target) {
-    const btn = e.target;
-    const ripple = document.createElement('span');
-    const rect = btn.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = e.clientX - rect.left - size / 2;
-    const y = e.clientY - rect.top - size / 2;
-
-    ripple.style.position = 'absolute';
-    ripple.style.left = x + 'px';
-    ripple.style.top = y + 'px';
-    ripple.style.width = size + 'px';
-    ripple.style.height = size + 'px';
-    ripple.style.borderRadius = '50%';
-    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-    ripple.style.pointerEvents = 'none';
-    ripple.style.animation = 'ripple 0.6s ease-out';
-
-    btn.style.position = 'relative';
-    btn.style.overflow = 'hidden';
-    btn.appendChild(ripple);
-
-    setTimeout(() => ripple.remove(), 600);
-  }
+// ============ CONTACT SALES ============
+function contactSales(plan) {
+  const message = plan === 'Demo' || plan === 'Demo Request'
+    ? 'Hi Axiom team, I\'d like to schedule a free demo to see how we can transform our business.\n\nPlease contact me at your earliest convenience.'
+    : `Hi Axiom team, I\'m interested in the ${plan}. Could you please contact me with more details, pricing information, and implementation timeline?\n\nThank you.`;
+  
+  const email = 'contact@axiomautomations.com';
+  const subject = `${plan} - Axiom Automations Demo Request`;
+  
+  // Trigger button animation
+  event.target.style.transform = 'scale(0.98)';
+  setTimeout(() => {
+    event.target.style.transform = 'scale(1)';
+  }, 200);
+  
+  setTimeout(() => {
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  }, 300);
 }
 
-// ============ INTERSECTION OBSERVER FOR ANIMATIONS ============
+// ============ COUNTER ANIMATION ============
+function animateCounter(element, target, duration = 2000) {
+  let current = 0;
+  const increment = target / (duration / 16);
+  const isDecimal = target % 1 !== 0;
+  
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = isDecimal ? target.toFixed(1) : Math.floor(target);
+      clearInterval(timer);
+    } else {
+      element.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+    }
+  }, 16);
+}
+
+// ============ INTERSECTION OBSERVER ============
 const observerOptions = {
-  threshold: 0.1,
+  threshold: 0.15,
   rootMargin: '0px 0px -100px 0px'
 };
 
@@ -73,18 +69,79 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+      
+      // Animate counters
+      const counter = entry.target.querySelector('.result-number-counter');
+      if (counter) {
+        const value = parseFloat(counter.textContent);
+        if (!isNaN(value)) {
+          animateCounter(counter, value);
+        }
+      }
+      
       observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-// ============ OBSERVE ALL ANIMATED ELEMENTS ============
+// ============ PAGE LOAD & INITIALIZATION ============
 document.addEventListener('DOMContentLoaded', () => {
+  // Create particles
+  createParticles();
+  
+  // Observe animated elements
   document.querySelectorAll(
-    '.service-card, .why-card, .pricing-card, .result-card, .pill, .step'
+    '.service-card-animated, .feature-item-animated, ' +
+    '.pricing-card-animated, .result-card-animated, ' +
+    '.pill-animated'
   ).forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
+  });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#') {
+        e.preventDefault();
+        scrollToSection(href.substring(1));
+      }
+    });
+  });
+  
+  // FAQ Toggle
+  document.querySelectorAll('.faq-item-premium').forEach(item => {
+    item.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+  });
+  
+  // Button ripple effect
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      ripple.style.position = 'absolute';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.style.width = size + 'px';
+      ripple.style.height = size + 'px';
+      ripple.style.borderRadius = '50%';
+      ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+      ripple.style.pointerEvents = 'none';
+      ripple.style.animation = 'ripple 0.6s ease-out';
+
+      this.style.position = 'relative';
+      this.style.overflow = 'hidden';
+      this.appendChild(ripple);
+
+      setTimeout(() => ripple.remove(), 600);
+    });
   });
 });
 
@@ -96,13 +153,13 @@ window.addEventListener('scroll', () => {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   
   if (scrollTop > 100) {
-    navbar.style.background = 'rgba(10, 13, 26, 0.98)';
-    navbar.style.borderBottomColor = 'rgba(45, 156, 235, 0.2)';
-    navbar.style.boxShadow = '0 10px 40px rgba(45, 156, 235, 0.1)';
+    navbar.style.background = 'linear-gradient(180deg, rgba(10, 13, 26, 0.98) 0%, rgba(10, 13, 26, 0.92) 100%)';
+    navbar.style.boxShadow = '0 20px 60px rgba(45, 156, 235, 0.15)';
+    navbar.style.borderBottomColor = 'rgba(45, 156, 235, 0.25)';
   } else {
-    navbar.style.background = 'rgba(10, 13, 26, 0.9)';
-    navbar.style.borderBottomColor = 'rgba(45, 156, 235, 0.1)';
-    navbar.style.boxShadow = 'none';
+    navbar.style.background = 'linear-gradient(180deg, rgba(10, 13, 26, 0.95) 0%, rgba(10, 13, 26, 0.85) 100%)';
+    navbar.style.boxShadow = '0 20px 60px rgba(45, 156, 235, 0.1)';
+    navbar.style.borderBottomColor = 'rgba(45, 156, 235, 0.15)';
   }
   
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -110,7 +167,7 @@ window.addEventListener('scroll', () => {
 
 // ============ DYNAMIC PRICING HIGHLIGHT ============
 document.addEventListener('DOMContentLoaded', () => {
-  const pricingCards = document.querySelectorAll('.pricing-card');
+  const pricingCards = document.querySelectorAll('.pricing-card-premium');
   
   pricingCards.forEach(card => {
     card.addEventListener('mouseenter', function() {
@@ -131,118 +188,62 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ============ SERVICE CARD HOVER EFFECTS ============
+// ============ SERVICE CARD HOVER ============
 document.addEventListener('DOMContentLoaded', () => {
-  const serviceCards = document.querySelectorAll('.service-card');
-  
-  serviceCards.forEach(card => {
-    const icon = card.querySelector('.service-icon-circle');
+  document.querySelectorAll('.service-card-premium').forEach(card => {
+    const icon = card.querySelector('.service-icon-premium');
     
     card.addEventListener('mouseenter', function() {
       if (icon) {
-        icon.style.transform = 'scale(1.15) rotate(10deg)';
+        icon.style.transform = 'scale(1.2) rotate(8deg)';
       }
-      this.style.transform = 'translateY(-6px)';
     });
     
     card.addEventListener('mouseleave', function() {
       if (icon) {
         icon.style.transform = 'scale(1) rotate(0deg)';
       }
-      this.style.transform = 'translateY(0)';
     });
   });
 });
-
-// ============ COUNTER ANIMATION FOR STATS ============
-function animateCounter(element, target, duration = 2000) {
-  let current = 0;
-  const increment = target / (duration / 16);
-  const isDecimal = target % 1 !== 0;
-  
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      element.textContent = isDecimal ? target.toFixed(1) : target;
-      clearInterval(timer);
-    } else {
-      element.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
-    }
-  }, 16);
-}
-
-// ============ OBSERVE AND ANIMATE STATS ============
-document.addEventListener('DOMContentLoaded', () => {
-  const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const statElement = entry.target.querySelector('.result-number');
-        if (statElement) {
-          const text = statElement.textContent.trim();
-          const number = parseFloat(text.replace(/[^\d.]/g, ''));
-          
-          if (!isNaN(number)) {
-            animateCounter(statElement, number);
-          }
-        }
-        
-        statObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  
-  document.querySelectorAll('.result-card').forEach(card => {
-    statObserver.observe(card);
-  });
-});
-
-// ============ FORM VALIDATION ============
-function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
 
 // ============ KEYBOARD NAVIGATION ============
 document.addEventListener('keydown', (e) => {
-  // Escape key closes any open modals
   if (e.key === 'Escape') {
-    console.log('Escape key pressed');
+    document.querySelectorAll('.faq-item-premium.active').forEach(item => {
+      item.classList.remove('active');
+    });
   }
   
-  // Home key scrolls to top
   if (e.key === 'Home') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   
-  // End key scrolls to bottom
   if (e.key === 'End') {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 });
 
-// ============ TRACK USER INTERACTIONS ============
+// ============ ACCESSIBILITY ============
 document.addEventListener('DOMContentLoaded', () => {
-  // Track button clicks
-  document.querySelectorAll('.btn, .service-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      animateButtonClick(e);
-      const action = this.textContent.trim();
-      console.log(`✓ User clicked: ${action}`);
-    });
+  const buttons = document.querySelectorAll('.btn, .service-btn-premium, .pricing-btn-premium');
+  buttons.forEach((btn, index) => {
+    if (!btn.getAttribute('aria-label')) {
+      btn.setAttribute('aria-label', btn.textContent.trim());
+    }
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
   });
   
-  // Track section views
-  const sections = document.querySelectorAll('section');
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const sectionName = entry.target.id || entry.target.className;
-        console.log(`✓ User viewed: ${sectionName}`);
+  // Keyboard support for buttons
+  buttons.forEach(btn => {
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
       }
     });
-  }, { threshold: 0.25 });
-  
-  sections.forEach(section => sectionObserver.observe(section));
+  });
 });
 
 // ============ PERFORMANCE OPTIMIZATION ============
@@ -258,44 +259,31 @@ function debounce(func, wait) {
   };
 }
 
-const debouncedScroll = debounce(function() {
-  // Handle scroll events with debouncing
+const debouncedResize = debounce(function() {
+  // Handle resize events
 }, 100);
 
-window.addEventListener('scroll', debouncedScroll, { passive: true });
+window.addEventListener('resize', debouncedResize, { passive: true });
 
-// ============ PAGE LOAD ANIMATION ============
-window.addEventListener('load', () => {
-  console.log('✓ Axiom Automations website fully loaded');
-  document.body.style.opacity = '1';
-  
-  // Trigger entrance animations
-  const elements = document.querySelectorAll('[class*="animated"]');
-  elements.forEach((el, index) => {
-    setTimeout(() => {
-      el.style.animation = 'fadeInUp 0.6s ease forwards';
-    }, index * 100);
-  });
-});
-
-// ============ ACCESSIBILITY ENHANCEMENTS ============
+// ============ TRACKING & ANALYTICS ============
 document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.btn, .service-btn, .pricing-btn');
-  buttons.forEach((btn, index) => {
-    if (!btn.getAttribute('aria-label')) {
-      btn.setAttribute('aria-label', btn.textContent.trim());
-    }
-    btn.setAttribute('role', 'button');
-    btn.setAttribute('tabindex', '0');
-  });
-  
-  // Add keyboard support for buttons
-  buttons.forEach(btn => {
-    btn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        btn.click();
+  // Track section visibility
+  const sections = document.querySelectorAll('section');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionName = entry.target.id || entry.target.className;
+        console.log(`✓ Viewed: ${sectionName}`);
       }
+    });
+  }, { threshold: 0.25 });
+  
+  sections.forEach(section => sectionObserver.observe(section));
+  
+  // Track button clicks
+  document.querySelectorAll('.btn, .service-btn-premium').forEach(btn => {
+    btn.addEventListener('click', function() {
+      console.log(`✓ Clicked: ${this.textContent.trim()}`);
     });
   });
 });
@@ -323,38 +311,12 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ============ RESPONSIVE IMAGE HANDLING ============
-const isMobile = () => {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-};
-
-if (isMobile()) {
-  console.log('✓ Mobile device detected - optimized experience loaded');
-}
-
-// ============ SESSION TRACKING ============
-window.addEventListener('beforeunload', () => {
-  sessionStorage.setItem('axiom_visited', 'true');
-  sessionStorage.setItem('axiom_last_visit', new Date().toISOString());
-});
-
-// ============ ERROR HANDLING ============
-window.addEventListener('error', (event) => {
-  console.error('⚠ An error occurred:', event.error);
-});
-
-window.addEventListener('unhandledrejection', (event) => {
-  console.error('⚠ Unhandled promise rejection:', event.reason);
-});
-
 // ============ CONSOLE MESSAGES ============
-console.log('%c┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓', 'color: #1d9ceb; font-weight: bold;');
-console.log('%c┃  AXIOM AUTOMATIONS  ┃', 'color: #1d9ceb; font-weight: bold;');
-console.log('%c┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛', 'color: #1d9ceb; font-weight: bold;');
-console.log('%cAI Automation Services for Businesses', 'color: #a8a8a8; font-size: 12px;');
-console.log('%cWebsite: https://axiomautomations.com', 'color: #a8a8a8; font-size: 12px;');
-console.log('%cEmail: contact@axiomautomations.com', 'color: #a8a8a8; font-size: 12px;');
-console.log('%c\n✓ All systems operational', 'color: #10b981; font-weight: bold;');
-function toggleDarkMode() {
-  document.body.style.filter = document.body.style.filter === 'invert(1)' ? 'none' : 'invert(1)';
-}
+console.log('%c┏━━━━━━━━━━━━━━━━━━━━━━━━┓', 'color: #1d9ceb; font-weight: bold; font-size: 14px;');
+console.log('%c┃  AXIOM AUTOMATIONS  ┃', 'color: #1d9ceb; font-weight: bold; font-size: 14px;');
+console.log('%c┗━━━━━━━━━━━━━━━━━━━━━━━━┛', 'color: #1d9ceb; font-weight: bold; font-size: 14px;');
+console.log('%cEnterprise AI Automation Platform', 'color: #a8a8a8; font-size: 12px;');
+console.log('%c✓ Website loaded successfully', 'color: #10b981; font-weight: bold;');
+console.log('%c✓ All systems operational', 'color: #10b981; font-weight: bold;');
+console.log('%cVisit: https://axiomautomations.com', 'color: #a8a8a8; font-size: 12px;');
+
