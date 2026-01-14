@@ -1,6 +1,6 @@
 :root {
   /* TRW Color Palette */
-  --bg-dark: #0a0d1a;
+  --bg-dark: #0a0c1a;
   --bg-darker: #050710;
   --bg-surface: #0f1528;
   --bg-card: rgba(15, 21, 40, 0.8);
@@ -464,10 +464,9 @@ body {
 }
 
 .pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 28px;
-  margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
 }
 
 .pricing-card {
@@ -766,68 +765,227 @@ ENTERPRISE: Custom
   font-size: 13px;
 }
 
-/* ============ BUTTONS ============ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 32px;
-  border-radius: 30px;
-  border: 1.5px solid var(--border-color);
-  background: transparent;
-  color: var(--text-light);
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 300ms ease;
-  font-size: 13px;
-  text-decoration: none;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+/* ==========================================
+   TRW BUTTON STYLES - ONLY BUTTONS
+   Add these to replace/override existing button styles
+   ========================================== */
+
+/* PRIMARY BUTTON */
+.btn,
+button,
+.button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+a.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    background: linear-gradient(90deg, #0066ff 0%, #0088ff 50%, #00aaff 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+        0 4px 16px rgba(0, 102, 255, 0.28),
+        0 0 0 0 rgba(0, 102, 255, 0.1);
+    text-decoration: none;
+    white-space: nowrap;
+    outline: none;
 }
 
-.btn:hover {
-  border-color: var(--blue-accent);
-  background: rgba(45, 156, 235, 0.1);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+.btn:hover,
+button:hover,
+.button:hover,
+[role="button"]:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+a.btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(90deg, #0077ff 0%, #0099ff 50%, #00bbff 100%);
+    box-shadow: 
+        0 8px 32px rgba(0, 102, 255, 0.42),
+        0 0 20px rgba(0, 102, 255, 0.2);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--blue-bright), var(--blue-accent));
-  border-color: transparent;
-  color: white;
-  box-shadow: 0 20px 50px rgba(45, 156, 235, 0.4);
+.btn:active,
+button:active,
+.button:active,
+[role="button"]:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+a.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 16px rgba(0, 102, 255, 0.28),
+        0 0 0 3px rgba(0, 102, 255, 0.15);
 }
 
-.btn-primary:hover {
-  box-shadow: 0 25px 60px rgba(45, 156, 235, 0.5);
-  transform: translateY(-4px);
+.btn:focus,
+button:focus,
+.button:focus,
+[role="button"]:focus {
+    outline: none;
+    box-shadow: 
+        0 8px 32px rgba(0, 102, 255, 0.42),
+        0 0 0 4px rgba(0, 102, 255, 0.2);
 }
 
-.btn-secondary {
-  background: rgba(45, 156, 235, 0.08);
-  border-color: var(--border-color);
+/* SECONDARY BUTTON (BORDERED) */
+.btn-secondary,
+button.secondary,
+.btn-outline {
+    background: transparent;
+    border: 2.5px solid #0066ff;
+    color: #0066ff;
+    box-shadow: inset 0 0 0 0 rgba(0, 102, 255, 0.08);
 }
 
-.btn-secondary:hover {
-  background: rgba(45, 156, 235, 0.15);
+.btn-secondary:hover,
+button.secondary:hover,
+.btn-outline:hover {
+    transform: translateY(-3px);
+    border-color: #0099ff;
+    color: #0099ff;
+    background: rgba(0, 102, 255, 0.06);
+    box-shadow: 
+        0 8px 24px rgba(0, 102, 255, 0.3),
+        inset 0 0 0 40px rgba(0, 102, 255, 0.06);
 }
 
-.btn-large {
-  padding: 18px 48px;
-  font-size: 14px;
+.btn-secondary:active,
+button.secondary:active,
+.btn-outline:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 16px rgba(0, 102, 255, 0.25),
+        inset 0 0 0 40px rgba(0, 102, 255, 0.08);
 }
 
-.btn-block {
-  width: 100%;
+/* BUTTON SIZES */
+.btn-lg,
+button.large {
+    padding: 16px 48px;
+    font-size: 17px;
+    min-height: 56px;
 }
 
-.btn-sm {
-  padding: 10px 18px;
-  font-size: 12px;
+.btn-sm,
+button.small {
+    padding: 8px 18px;
+    font-size: 13px;
+    min-height: 40px;
 }
 
+/* BUTTON WITH ARROW */
+.btn-arrow::after {
+    content: '→';
+    margin-left: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-arrow:hover::after {
+    transform: translateX(4px);
+}
+
+/* RIPPLE EFFECT */
+.btn::before,
+button::before,
+.button::before,
+[role="button"]::before,
+a.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.btn:active::before,
+button:active::before,
+.button:active::before,
+[role="button"]:active::before,
+a.btn:active::before {
+    animation: ripple-click 0.6s ease-out forwards;
+}
+
+@keyframes ripple-click {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+
+/* DISABLED STATE */
+.btn:disabled,
+button:disabled,
+.button:disabled,
+button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn:disabled:hover,
+button:disabled:hover,
+.button:disabled:hover,
+button[disabled]:hover {
+    transform: none;
+}
+
+/* BUTTON BLOCK */
+.btn-block,
+.btn-full {
+    width: 100%;
+}
+
+/* ACCESSIBILITY */
+button:focus-visible,
+.btn:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid #0066ff;
+    outline-offset: 2px;
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    button,
+    .btn,
+    .button,
+    [role="button"],
+    a.btn {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    button:hover,
+    .btn:hover,
+    .button:hover {
+        transform: none !important;
+    }
+}
 /* ============ FOOTER ============ */
 .footer {
   background: linear-gradient(180deg, rgba(5, 7, 16, 0.9), #0a0d1a);
@@ -2015,3 +2173,14 @@ ENTERPRISE: Custom
   }
 }
 
+.urgency-banner {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+}
+
+.navbar {
+    position: sticky;
+    top: 50px;
+    z-index: 1999;
+}
